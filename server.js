@@ -1,13 +1,15 @@
-const http = require('http');
+const express = require('express');
+const app = express();
+const port = 3000;
 
-const server = http.createServer((req,res) => {
-    console.log("Starting");
-    res.setHeader('Content-Type', 'text/html');
-    res.write('<h1>Hello World</h1>');
-    res.write('<h2>First Github and NodeJS<h2>');
-    res.end();
+app.get('/', (req, res) => {
+    res.send("<h1>Hello mot ngay that dep nho</h1>");
 });
 
-server.listen(3000, 'localhost', ()=> {
-    console.log('running');
+app.get('/about', (req, res) => {
+    res.send("<h1>Chao buoi sang<h1>");    
+});
+
+app.listen(port,() => {
+    console.log("Launching project...");
 });
